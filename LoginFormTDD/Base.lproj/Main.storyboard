@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="LoginFormTDD" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="BYZ-38-t0r" customClass="LoginViewController" customModule="LoginFormTDD" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -53,8 +53,11 @@
                                 <state key="normal" title="Login">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="login:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pc5-Bi-C5A"/>
+                                </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account? Create one now" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IUN-Rs-kHv">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account? Create one now" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IUN-Rs-kHv">
                                 <rect key="frame" x="16" y="290" width="382" height="24"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <nil key="textColor"/>
@@ -70,6 +73,9 @@
                                 <state key="normal" title="Create Account">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="createAccount:" destination="BYZ-38-t0r" eventType="touchUpInside" id="p2Z-SX-bK2"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -96,27 +102,34 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="createAccountButton" destination="CS4-Qq-YYU" id="6QX-UQ-Ney"/>
+                        <outlet property="loginButton" destination="1bN-yq-0Xo" id="6Lj-K6-nVb"/>
+                        <outlet property="passwordTextField" destination="45Q-90-RAT" id="cxY-QG-ssw"/>
+                        <outlet property="userNameTextField" destination="QzB-ZW-1iz" id="M0U-bQ-n5O"/>
+                        <segue destination="JIN-A9-ci1" kind="presentation" identifier="presentCreateAccount" id="AMK-N1-nFI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="100.44642857142857"/>
         </scene>
-        <!--View Controller-->
+        <!--Signup View Controller-->
         <scene sceneID="brm-kq-hLo">
             <objects>
-                <viewController id="JIN-A9-ci1" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignupViewController" id="JIN-A9-ci1" customClass="SignupViewController" customModule="LoginFormTDD" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sXA-1F-iUt">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BTE-EO-QF4">
-                                <rect key="frame" x="16" y="84" width="104.5" height="24"/>
+                                <rect key="frame" x="16" y="40" width="104.5" height="24"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter user name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sS1-Ot-IMo">
-                                <rect key="frame" x="140.5" y="76" width="257.5" height="40"/>
+                                <rect key="frame" x="140.5" y="32" width="257.5" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="lNG-WJ-HON"/>
                                 </constraints>
@@ -124,13 +137,13 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NLB-gy-JxH">
-                                <rect key="frame" x="16" y="138" width="99.5" height="24"/>
+                                <rect key="frame" x="16" y="94" width="99.5" height="24"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bsO-55-Dew">
-                                <rect key="frame" x="140.5" y="130" width="257.5" height="40"/>
+                                <rect key="frame" x="140.5" y="86" width="257.5" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="zDx-ar-Sqi"/>
                                 </constraints>
@@ -138,7 +151,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Re-enter password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RN8-95-AIe">
-                                <rect key="frame" x="140.5" y="184" width="257.5" height="40"/>
+                                <rect key="frame" x="140.5" y="140" width="257.5" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="sZJ-pj-pAh"/>
                                 </constraints>
@@ -146,13 +159,13 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aRy-AC-boS">
-                                <rect key="frame" x="16" y="246" width="60" height="24"/>
+                                <rect key="frame" x="16" y="202" width="60" height="24"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter email address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="99N-S0-fsi">
-                                <rect key="frame" x="140.5" y="238" width="257.5" height="40"/>
+                                <rect key="frame" x="140.5" y="194" width="257.5" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="nGR-lM-BI4"/>
                                 </constraints>
@@ -160,7 +173,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WU6-af-KgH">
-                                <rect key="frame" x="16" y="318" width="382" height="50"/>
+                                <rect key="frame" x="16" y="274" width="382" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="ULR-VR-ZzZ"/>
@@ -169,6 +182,9 @@
                                 <state key="normal" title="Create Account">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="create:" destination="JIN-A9-ci1" eventType="touchUpInside" id="UyM-Vw-TBe"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -197,6 +213,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qM7-Wf-EKW"/>
                     </view>
+                    <connections>
+                        <outlet property="confirmPasswordTextField" destination="RN8-95-AIe" id="3W5-yO-Lal"/>
+                        <outlet property="createButton" destination="WU6-af-KgH" id="3CE-hu-j81"/>
+                        <outlet property="emailAddressTextField" destination="99N-S0-fsi" id="U2S-Ov-DoB"/>
+                        <outlet property="passwordTextField" destination="bsO-55-Dew" id="DN6-uh-0kj"/>
+                        <outlet property="userNameTextField" destination="sS1-Ot-IMo" id="4y3-gk-71K"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oFg-N4-o9Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
