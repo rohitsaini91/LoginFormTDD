@@ -15,4 +15,13 @@ class LoginViewModel: NSObject{
         super.init()
         self.view = view
     }
+    func userNameDidEndOnExit() {
+        view?.hideKeyboard()
+    }
+    func performInitialViewSetup() {
+        view?.clearUserNameField()
+        view?.clearPasswordField()
+        view?.enableLoginButton(false)
+        view?.enableCreateAccountButton(true)
+    }
 }

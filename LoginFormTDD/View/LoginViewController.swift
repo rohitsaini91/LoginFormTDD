@@ -58,5 +58,29 @@ extension LoginViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField,
                    shouldChangeCharactersIn range: NSRange,
                    replacementString string: String) -> Bool {
-        return true }
+        return true
+        
+    }
+}
+
+//MARK:- LoginViewControllerProtocol
+extension LoginViewController : LoginViewControllerProtocol {
+    
+    func clearUserNameField() {
+        self.userNameTextField.text = ""
+    }
+    func clearPasswordField() {
+        self.passwordTextField.text = ""
+    }
+    func enableLoginButton(_ status:Bool) {
+        self.loginButton.isEnabled = status
+    }
+    func enableCreateAccountButton(_ status:Bool) {
+        self.loginButton.isEnabled = status
+    }
+    func hideKeyboard() {
+        self.userNameTextField.resignFirstResponder()
+        self.passwordTextField.resignFirstResponder()
+    }
+    
 }
